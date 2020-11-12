@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.App {
+  display: grid;
+  grid: 100px 100px 100px / 100px 100px 100px;
+  align-content: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.Box {
+  border: black 5px solid;
+  vertical-align: middle;
+  font-size: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

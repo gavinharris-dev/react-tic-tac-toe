@@ -1,10 +1,14 @@
-import React, {useState} from 'react';
-
-
 export function Box(props) {
+
+    let style = {...styles.box};
+
+    if (props.value.error) {
+        style.borderColor = 'red';
+    }
+
     return (
-        <div className={'Box'} style={styles.box} onClick={props.onClick}>
-            <p>{props.value}</p>
+        <div className={'Box'} style={style} onClick={props.onClick}>
+            <p>{props.value.value}</p>
         </div>
     )
 }

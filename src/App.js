@@ -4,7 +4,17 @@ import {Box} from "./Components/Box";
 
 function App() {
 
-  const [state, setState] = useState([].fill('', 0, 8));
+  const [state, setState] = useState([
+    {value: '', error: null},
+    {value: '', error: null},
+    {value: '', error: null},
+    {value: '', error: null},
+    {value: '', error: null},
+    {value: '', error: null},
+    {value: '', error: null},
+    {value: '', error: null},
+    {value: '', error: null}
+  ]);
   const [player, setPlayer] = useState('X');
 
   function swapPlayer() {
@@ -17,7 +27,21 @@ function App() {
 
   function boxClickHandler(which) {
     const updatedState = [...state];
-    updatedState[which] = player;
+
+    if (state[which].value !== '') {
+      updatedState[which].error = 'Used';
+      setState(updatedState);
+
+      return setTimeout(() => {
+        const updatedState = [...state];
+        updatedState[which].error = null;
+        setState(updatedState);
+      }, 200);
+
+    }
+
+    updatedState[which].value = player;
+    updatedState[which].error = null;
     setState(updatedState);
     swapPlayer();
   }
